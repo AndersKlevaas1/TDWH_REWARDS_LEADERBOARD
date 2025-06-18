@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDWH Rewards Leaderboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-stars"></div>
+    <div class="container mx-auto px-4 py-8">
+        <div class="header text-center mb-6">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchIAAAAAElFTkSuQmCC" alt="TDWH Rewards Logo" class="mx-auto mb-2">
+            <h1 class="text-2xl text-red-600">CS:GO ROLL</h1>
+        </div>
+        <div class="trophy-section text-center mb-6">
+            <h2 class="text-6xl text-red-600">TDWH Rewards</h2>
+            <p class="text-2xl text-white">20,000 $ TOTAL PRIZE</p>
+            <p class="text-lg text-red-400">Wager with use code TDWH Rewards to participate on the leaderboards and get rewards.</p>
+            <p class="text-lg text-red-400">5 random depositors receive 100 $ each!</p>
+            <div class="buttons flex justify-center gap-4 mt-4">
+                <button class="btn btn-current">Current Month</button>
+                <button class="btn btn-last">Last Month</button>
+            </div>
+        </div>
+        <div class="leaderboard-content">
+            <div class="top-3 grid grid-cols-3 gap-4 mb-6">
+                <div class="rank-card p-4 bg-gray-800 border-2 border-yellow-500 text-center">
+                    <div class="profile-img mx-auto mb-2"></div>
+                    <span class="text-red-600 text-xl">#1</span>
+                    <p class="text-white">W1</p>
+                    <p class="text-yellow-400">WAGERED</p>
+                    <p class="text-white">40000.58 $</p>
+                    <p class="text-yellow-400">5000.00 $</p>
+                </div>
+                <div class="rank-card p-4 bg-gray-800 border-2 border-blue-500 text-center">
+                    <div class="profile-img mx-auto mb-2"></div>
+                    <span class="text-red-600 text-xl">#2</span>
+                    <p class="text-white">SudoBro</p>
+                    <p class="text-yellow-400">DEPOSITED</p>
+                    <p class="text-white">8724.17 $</p>
+                    <p class="text-yellow-400">3500.00 $</p>
+                </div>
+                <div class="rank-card p-4 bg-gray-800 border-2 border-orange-500 text-center">
+                    <div class="profile-img mx-auto mb-2"></div>
+                    <span class="text-red-600 text-xl">#3</span>
+                    <p class="text-white">BonerLore</p>
+                    <p class="text-yellow-400">DEPOSITED</p>
+                    <p class="text-white">6242.86 $</p>
+                    <p class="text-yellow-400">2500.00 $</p>
+                </div>
+            </div>
+            <div class="countdown text-center mb-6">
+                <h3 class="text-xl text-white">LEADERBOARD ENDS IN</h3>
+                <div id="countdown" class="text-2xl text-white">14 12 55 16</div>
+                <p class="text-sm text-gray-400">DAYS HOURS MINUTES SECONDS</p>
+            </div>
+            <div class="leaderboard-table overflow-x-auto">
+                <div class="space-y-2" id="leaderboard-body">
+                    <!-- Rows will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Corrected mock leaderboard data
+        const leaderboardData = [
+            { place: 4, username: "w1", deposited: 4000.99, prize: 1000.00 },
+            { place: 5, username: "Stale", deposited: 7875.00, prize: 800.00 },
+            { place: 6, username: "INSANEL", deposited: 9886.00, prize: 1300.00 },
+            { place: 7, username: "HG-STAIN", deposited: 4467.14, prize: 1000.00 },
+            { place: 8, username: "YT-VONIXDB (NEW VID OUT)", deposited: 3560.00, prize: 600.00 },
+            { place: 9, username: "COIN CHASER", deposited: 3357.14, prize: 300.00 },
+            { place: 10, username: "UGNADA CSGOROLL.COM", deposited: 2215.50, prize: 250.00 },
+            { place: 11, username: "UNFAIRGOROLL.ORG", deposited: 1706.00, prize: 200.00 },
+            { place: 12, username: "Levi", deposited: 1148.57, prize: 150.00 },
+            { place: 13, username: "StajMa™", deposited: 805.03, prize: 100.00 }, // Fixed entry
+            { place: 14, username: "BISURKO ASS", deposited: 781.00, prize: 75.00 },
+            { place: 15, username: "SHARPEIN5", deposited: 666.58, prize: 50.00 },
+            { place: 16, username: "JONES", deposited: 655.03, prize: 25.00 },
+            { place: 17, username: "SKYZD3R", deposited: 655.27, prize: 20.00 },
+            { place: 18, username: "DEVON", deposited: 599.98, prize: 15.00 }
+        ];
+
+        // Function to populate the leaderboard
+        function populateLeaderboard(data) {
+            const container = document.getElementById("leaderboard-body");
+            container.innerHTML = "";
+            data.forEach(player => {
+                const row = document.createElement("div");
+                row.className = "leaderboard-row flex items-center justify-between p-2 border-t border-gray-700";
+                row.innerHTML = `
+                    <span class="text-red-600 text-lg mr-2">#${player.place}</span>
+                    <div class="profile-img mr-2"></div>
+                    <span class="flex-1 text-white">${player.username}</span>
+                    <span class="text-yellow-400 text-right">${player.deposited.toFixed(2)} $</span>
+                    <span class="text-yellow-400 text-right">${player.prize.toFixed(2)} $</span>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        // Countdown timer
+        function updateCountdown() {
+            const countDownDate = new Date("June 30, 2025 23:59:59").getTime();
+            const x = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = `${days} ${hours} ${minutes} ${seconds}`;
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        }
+
+        // Mouse move effect for background stars
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            const moveX = (mouseX - 0.5) * 50;
+            const moveY = (mouseY - 0.5) * 50;
+            document.querySelector('.bg-stars').style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        // Initial population and countdown
+        populateLeaderboard(leaderboardData);
+        updateCountdown();
+    </script>
+</body>
+</html>
