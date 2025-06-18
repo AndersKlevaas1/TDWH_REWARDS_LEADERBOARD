@@ -1,119 +1,127 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body {
-    background: #000000;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-    color: #d1d5db;
-    font-family: 'Bebas Neue', sans-serif;
+  background: #000000;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  color: #d1d5db;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
+/* Bakgrunnsstjerner */
 .bg-stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000 url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Ccircle cx="20" cy="30" r="0.5" fill="%23ef4444" /%3E%3Ccircle cx="50" cy="70" r="0.5" fill="%23ef4444" /%3E%3Ccircle cx="80" cy="40" r="0.5" fill="%23ef4444" /%3E%3C/svg%3E') repeat;
-    z-index: -1;
-    opacity: 0.8;
-    transition: transform 0.1s ease-out;
-    animation: twinkle 5s infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000 url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Ccircle cx="20" cy="30" r="0.5" fill="%23ef4444" /%3E%3Ccircle cx="50" cy="70" r="0.5" fill="%23ef4444" /%3E%3Ccircle cx="80" cy="40" r="0.5" fill="%23ef4444" /%3E%3C/svg%3E') repeat;
+  z-index: -1;
+  opacity: 0.8;
+  transition: transform 0.1s ease-out;
+  animation: twinkle 5s infinite;
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.6; }
-    50% { opacity: 0.9; }
-    100% { opacity: 0.6; }
+  0% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.6; }
 }
 
-.container {
-    position: relative;
-    z-index: 1;
+/* Navigasjon */
+header nav ul li a {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+header nav ul li ul li a {
+  text-transform: none;
+  font-weight: normal;
 }
 
-.header img {
-    max-width: 150px;
-}
-
-.trophy-section h2 {
-    color: #ef4444;
-    font-size: 6rem;
-    font-weight: normal;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-}
-
-.trophy-section p {
-    color: #f87171;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
+/* Knapper */
 .buttons .btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.2rem;
 }
-
 .buttons .btn-current {
-    background: #ef4444;
-    color: #fff;
+  background: #ef4444;
+  color: #fff;
 }
-
 .buttons .btn-last {
-    background: #374151;
-    color: #d1d5db;
+  background: #374151;
+  color: #d1d5db;
 }
 
-.leaderboard-content .top-3 .rank-card {
-    padding: 10px;
-    text-align: center;
-    border-width: 2px;
-}
-
-.leaderboard-content .top-3 .rank-card:nth-child(1) {
-    border-color: #d4b106; /* Yellow for #1 */
-}
-
-.leaderboard-content .top-3 .rank-card:nth-child(2) {
-    border-color: #3b82f6; /* Blue for #2 */
-}
-
-.leaderboard-content .top-3 .rank-card:nth-child(3) {
-    border-color: #f97316; /* Orange for #3 */
+/* Topprangerte kort */
+.rank-card p,
+.rank-card span {
+  margin: 0.25rem 0;
 }
 
 .profile-img {
-    width: 40px;
-    height: 40px;
-    background: #4b5563;
-    border-radius: 50%;
-    margin: 0 auto 10px;
+  width: 64px;
+  height: 64px;
+  background: #4b5563;
+  border-radius: 50%;
+  margin: 0 auto 10px;
 }
 
+/* Podium styling */
+.top-3 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 9rem; /* Økt avstand for å unngå overlapping */
+}
+
+.top-3 .rank-card {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.top-3 .first {
+  transform: translateY(-30px);
+}
+
+/* Podium profile image override */
+.top-3 .profile-img {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+/* Nedtelling */
 .countdown h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
-
 .countdown #countdown {
-    font-size: 2rem;
-    margin-bottom: 5px;
+  font-size: 2rem;
+  margin-bottom: 5px;
 }
 
+/* Rangeringstabell */
+.leaderboard-table {
+  text-align: center;
+}
+.leaderboard-table table {
+  margin: 0 auto;
+}
 .leaderboard-table .leaderboard-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 10px;
-    border-top: 1px solid #2d3748;
-    transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid #2d3748;
+  transition: background 0.3s ease;
+}
+.leaderboard-table .leaderboard-row:hover {
+  background: #1e293b;
 }
 
-.leaderboard-table .leaderboard-row:hover {
-    background: #1e293b;
-}

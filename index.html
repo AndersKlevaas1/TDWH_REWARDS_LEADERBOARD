@@ -1,137 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TDWH Rewards Leaderboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TDWH Rewards Leaderboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Particles.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
-<body>
-    <div class="bg-stars"></div>
-    <div class="container mx-auto px-4 py-8">
-        <div class="header text-center mb-6">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchIAAAAAElFTkSuQmCC" alt="TDWH Rewards Logo" class="mx-auto mb-2">
-            <h1 class="text-2xl text-red-600">CS:GO ROLL</h1>
-        </div>
-        <div class="trophy-section text-center mb-6">
-            <h2 class="text-6xl text-red-600">TDWH Rewards</h2>
-            <p class="text-2xl text-white">20,000 $ TOTAL PRIZE</p>
-            <p class="text-lg text-red-400">Wager with use code TDWH Rewards to participate on the leaderboards and get rewards.</p>
-            <p class="text-lg text-red-400">5 random depositors receive 100 $ each!</p>
-            <div class="buttons flex justify-center gap-4 mt-4">
-                <button class="btn btn-current">Current Month</button>
-                <button class="btn btn-last">Last Month</button>
-            </div>
-        </div>
-        <div class="leaderboard-content">
-            <div class="top-3 grid grid-cols-3 gap-4 mb-6">
-                <div class="rank-card p-4 bg-gray-800 border-2 border-yellow-500 text-center">
-                    <div class="profile-img mx-auto mb-2"></div>
-                    <span class="text-red-600 text-xl">#1</span>
-                    <p class="text-white">W1</p>
-                    <p class="text-yellow-400">WAGERED</p>
-                    <p class="text-white">40000.58 $</p>
-                    <p class="text-yellow-400">5000.00 $</p>
-                </div>
-                <div class="rank-card p-4 bg-gray-800 border-2 border-blue-500 text-center">
-                    <div class="profile-img mx-auto mb-2"></div>
-                    <span class="text-red-600 text-xl">#2</span>
-                    <p class="text-white">SudoBro</p>
-                    <p class="text-yellow-400">DEPOSITED</p>
-                    <p class="text-white">8724.17 $</p>
-                    <p class="text-yellow-400">3500.00 $</p>
-                </div>
-                <div class="rank-card p-4 bg-gray-800 border-2 border-orange-500 text-center">
-                    <div class="profile-img mx-auto mb-2"></div>
-                    <span class="text-red-600 text-xl">#3</span>
-                    <p class="text-white">BonerLore</p>
-                    <p class="text-yellow-400">DEPOSITED</p>
-                    <p class="text-white">6242.86 $</p>
-                    <p class="text-yellow-400">2500.00 $</p>
-                </div>
-            </div>
-            <div class="countdown text-center mb-6">
-                <h3 class="text-xl text-white">LEADERBOARD ENDS IN</h3>
-                <div id="countdown" class="text-2xl text-white">14 12 55 16</div>
-                <p class="text-sm text-gray-400">DAYS HOURS MINUTES SECONDS</p>
-            </div>
-            <div class="leaderboard-table overflow-x-auto">
-                <div class="space-y-2" id="leaderboard-body">
-                    <!-- Rows will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
+<body class="bg-gray-900 text-white relative overflow-x-hidden min-h-screen font-sans flex flex-col">
+
+  <!-- Partikkelbakgrunn -->
+  <div id="particles-js" class="absolute inset-0 z-0"></div>
+  <!-- Bakgrunnsstjerner (fallback/static) -->
+  <div class="bg-stars"></div>
+
+  <!-- Navigasjonsfelt -->
+  <header class="relative z-10 bg-gray-900">
+    <div class="container mx-auto grid grid-cols-3 items-center px-4 py-4">
+      <!-- Venstre: Logo -->
+      <div class="text-left">
+        <a href="#" class="text-2xl font-bold text-red-600">TDWH</a>
+      </div>
+      <!-- Midt: Hovedmeny -->
+      <nav class="text-center">
+        <ul class="inline-flex space-x-6 uppercase font-bold">
+          <li><a href="index.html" class="hover:text-red-400">HOME</a></li>
+          <li><a href="rewards.html" class="hover:text-red-400">REWARDS</a></li>
+        </ul>
+      </nav>
+      <!-- Høyre: Sosiale lenker -->
+      <div class="justify-self-end text-right inline-flex items-center space-x-2 font-mono">
+        <a href="https://www.youtube.com/@TDWH"       class="hover:text-red-400" target="_blank">Youtube</a><span>|</span>
+        <a href="https://x.com/codeTDWH"              class="hover:text-red-400" target="_blank">Twitter / X</a><span>|</span>
+        <a href="https://discord.gg/myhZkv4D"         class="hover:text-red-400" target="_blank">Discord</a><span>|</span>
+        <a href="https://kick.com/tdwh"               class="hover:text-red-400" target="_blank">Kick</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hovedinnhold -->
+  <main class="container mx-auto px-4 py-8 relative z-10 flex-1">
+    <!-- Toppseksjon -->
+    <div class="text-center mb-6">
+      <h1 class="text-6xl text-red-600 font-bold mb-2">TDWH Rewards</h1>
+      <p class="text-2xl mb-1">150 $ TOTAL PRIZE</p>
+      <p class="text-lg text-red-400 mb-1">
+        Wager with use code <strong>TDWH</strong> to participate on the leaderboards and get rewards.
+      </p>
+      <div class="buttons flex justify-center gap-4 mt-4">
+        <button class="btn btn-current">Current Month</button>
+        <button class="btn btn-last">Last Month</button>
+      </div>
     </div>
 
-    <script>
-        // Corrected mock leaderboard data
-        const leaderboardData = [
-            { place: 4, username: "w1", deposited: 4000.99, prize: 1000.00 },
-            { place: 5, username: "Stale", deposited: 7875.00, prize: 800.00 },
-            { place: 6, username: "INSANEL", deposited: 9886.00, prize: 1300.00 },
-            { place: 7, username: "HG-STAIN", deposited: 4467.14, prize: 1000.00 },
-            { place: 8, username: "YT-VONIXDB (NEW VID OUT)", deposited: 3560.00, prize: 600.00 },
-            { place: 9, username: "COIN CHASER", deposited: 3357.14, prize: 300.00 },
-            { place: 10, username: "UGNADA CSGOROLL.COM", deposited: 2215.50, prize: 250.00 },
-            { place: 11, username: "UNFAIRGOROLL.ORG", deposited: 1706.00, prize: 200.00 },
-            { place: 12, username: "Levi", deposited: 1148.57, prize: 150.00 },
-            { place: 13, username: "StajMa™", deposited: 805.03, prize: 100.00 }, // Fixed entry
-            { place: 14, username: "BISURKO ASS", deposited: 781.00, prize: 75.00 },
-            { place: 15, username: "SHARPEIN5", deposited: 666.58, prize: 50.00 },
-            { place: 16, username: "JONES", deposited: 655.03, prize: 25.00 },
-            { place: 17, username: "SKYZD3R", deposited: 655.27, prize: 20.00 },
-            { place: 18, username: "DEVON", deposited: 599.98, prize: 15.00 }
-        ];
+    <!-- Top 3 spillere (podium) -->
+    <div class="top-3 flex justify-center items-end gap-4 mb-6">
+      <!-- #2 -->
+      <div class="rank-card second p-6 bg-gray-800 border-2 border-blue-500 text-center">
+        <div class="profile-img mx-auto mb-4"></div>
+        <span class="text-red-600 text-2xl">#2</span>
+        <p class="text-white text-xl mt-2">PLAYER2</p>
+        <p class="text-yellow-400">DEPOSITED</p>
+        <p class="text-white">0.00 $</p>
+        <p class="text-yellow-400">30 $</p>
+      </div>
+      <!-- #1 -->
+      <div class="rank-card first p-6 bg-gray-800 border-2 border-yellow-500 text-center">
+        <div class="profile-img mx-auto mb-4"></div>
+        <span class="text-red-600 text-2xl">#1</span>
+        <p class="text-white text-xl mt-2">PLAYER1</p>
+        <p class="text-yellow-400">DEPOSITED</p>
+        <p class="text-white">0.00 $</p>
+        <p class="text-yellow-400">75 $</p>
+      </div>
+      <!-- #3 -->
+      <div class="rank-card third p-6 bg-gray-800 border-2 border-orange-500 text-center">
+        <div class="profile-img mx-auto mb-4"></div>
+        <span class="text-red-600 text-2xl">#3</span>
+        <p class="text-white text-xl mt-2">PLAYER3</p>
+        <p class="text-yellow-400">DEPOSITED</p>
+        <p class="text-white">0.00 $</p>
+        <p class="text-yellow-400">20 $</p>
+      </div>
+    </div>
 
-        // Function to populate the leaderboard
-        function populateLeaderboard(data) {
-            const container = document.getElementById("leaderboard-body");
-            container.innerHTML = "";
-            data.forEach(player => {
-                const row = document.createElement("div");
-                row.className = "leaderboard-row flex items-center justify-between p-2 border-t border-gray-700";
-                row.innerHTML = `
-                    <span class="text-red-600 text-lg mr-2">#${player.place}</span>
-                    <div class="profile-img mr-2"></div>
-                    <span class="flex-1 text-white">${player.username}</span>
-                    <span class="text-yellow-400 text-right">${player.deposited.toFixed(2)} $</span>
-                    <span class="text-yellow-400 text-right">${player.prize.toFixed(2)} $</span>
-                `;
-                container.appendChild(row);
-            });
+    <!-- Nedtelling -->
+    <div class="countdown text-center mb-6">
+      <h3 class="text-xl">LEADERBOARD ENDS IN</h3>
+      <div id="countdown" class="text-2xl">31 00 00 00</div>
+      <p class="text-sm text-gray-400">DAYS HOURS MINUTES SECONDS</p>
+    </div>
+
+    <!-- Tabell for resten av rangeringen, sentrert -->
+    <div class="overflow-x-auto flex justify-center">
+      <table class="table-auto text-left text-white mx-auto">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">#</th>
+            <th class="px-4 py-2">Name</th>
+            <th class="px-4 py-2">Deposited</th>
+            <th class="px-4 py-2">Prize</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Placeholder rows -->
+          <tr><td class="px-4 py-2">4</td><td class="px-4 py-2">PLAYER4</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">5 $</td></tr>
+          <tr><td class="px-4 py-2">5</td><td class="px-4 py-2">PLAYER5</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">5 $</td></tr>
+          <tr><td class="px-4 py-2">6</td><td class="px-4 py-2">PLAYER6</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">5 $</td></tr>
+          <tr><td class="px-4 py-2">7</td><td class="px-4 py-2">PLAYER7</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">3 $</td></tr>
+          <tr><td class="px-4 py-2">8</td><td class="px-4 py-2">PLAYER8</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">3 $</td></tr>
+          <tr><td class="px-4 py-2">9</td><td class="px-4 py-2">PLAYER9</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">3 $</td></tr>
+          <tr><td class="px-4 py-2">10</td><td class="px-4 py-2">PLAYER10</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">1 $</td></tr>
+          <tr><td class="px-4 py-2">11</td><td class="px-4 py-2">PLAYER11</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">0 $</td></tr>
+          <tr><td class="px-4 py-2">12</td><td class="px-4 py-2">PLAYER12</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">0 $</td></tr>
+          <tr><td class="px-4 py-2">13</td><td class="px-4 py-2">PLAYER13</td><td class="px-4 py-2">0.00 $</td><td class="px-4 py-2">0 $</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-center text-gray-400 py-4 relative z-10">
+    <p>We do not take responsibility for any losses from gambling in casinos and betting sites which are linked or promoted on our website(s). As a player, you are responsible for your bets.</p>
+    <p><a href="https://www.begambleaware.org" class="hover:text-red-400">BeGambleAware.org</a></p>
+    <p>© Copyrights 2024 | Powered by r00t</p>
+  </footer>
+
+  <!-- JavaScript for nedtelling og partikler -->
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: '#ef4444' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 2 },
+        move: { enable: true, direction: 'top', speed: 1, out_mode: 'out' }
+      },
+      interactivity: { detect_on: 'canvas', events: { onhover: { enable: false } } },
+      retina_detect: true
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const countdownEl = document.getElementById('countdown');
+      const targetTime = Date.now() + 31 * 24 * 60 * 60 * 1000;
+
+      function updateCountdown() {
+        const diff = targetTime - Date.now();
+        if (diff <= 0) {
+          countdownEl.textContent = '0 00 00 00';
+          clearInterval(intervalId);
+          return;
         }
+        const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hrs   = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2,'0');
+        const mins  = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2,'0');
+        const secs  = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2,'0');
+        countdownEl.textContent = `${days} ${hrs} ${mins} ${secs}`;
+      }
 
-        // Countdown timer
-        function updateCountdown() {
-            const countDownDate = new Date("June 30, 2025 23:59:59").getTime();
-            const x = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = countDownDate - now;
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                document.getElementById("countdown").innerHTML = `${days} ${hours} ${minutes} ${seconds}`;
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("countdown").innerHTML = "EXPIRED";
-                }
-            }, 1000);
-        }
-
-        // Mouse move effect for background stars
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            const moveX = (mouseX - 0.5) * 50;
-            const moveY = (mouseY - 0.5) * 50;
-            document.querySelector('.bg-stars').style.transform = `translate(${moveX}px, ${moveY}px)`;
-        });
-
-        // Initial population and countdown
-        populateLeaderboard(leaderboardData);
-        updateCountdown();
-    </script>
+      updateCountdown();
+      const intervalId = setInterval(updateCountdown, 1000);
+    });
+  </script>
 </body>
 </html>

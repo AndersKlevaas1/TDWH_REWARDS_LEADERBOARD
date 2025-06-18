@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TDWH – Rewards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css"/>  <!-- Din eksisterende CSS med Bebas Neue og stjerner -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white relative overflow-x-hidden font-sans flex flex-col min-h-screen">
+  <!-- Partikler og bakgrunnsstjerner -->
+  <div id="particles-js" class="absolute inset-0 z-0"></div>
+  <div class="bg-stars"></div>
+
+  <!-- Header / Nav -->
+  <header class="relative z-10 bg-gray-900">
+    <div class="container mx-auto grid grid-cols-3 items-center px-4 py-4">
+      <!-- Venstre: Logo -->
+      <div class="text-left">
+        <a href="#" class="text-2xl font-bold text-red-600">TDWH</a>
+      </div>
+      <!-- Midt: Hovedmeny -->
+      <nav class="text-center">
+        <ul class="inline-flex space-x-6 uppercase font-bold">
+          <li><a href="index.html" class="hover:text-red-400">HOME</a></li>
+          <li><a href="rewards.html" class="hover:text-red-400">REWARDS</a></li>
+        </ul>
+      </nav>
+      <!-- Høyre: Sosiale lenker -->
+      <div class="justify-self-end text-right inline-flex items-center space-x-2 font-mono">
+        <a href="https://www.youtube.com/@TDWH"       class="hover:text-red-400" target="_blank">Youtube</a><span>|</span>
+        <a href="https://x.com/codeTDWH"              class="hover:text-red-400" target="_blank">Twitter / X</a><span>|</span>
+        <a href="https://discord.gg/myhZkv4D"         class="hover:text-red-400" target="_blank">Discord</a><span>|</span>
+        <a href="https://kick.com/tdwh"               class="hover:text-red-400" target="_blank">Kick</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hovedinnhold -->
+  <main class="container mx-auto px-4 py-12 relative z-10 flex-1">
+    <h2 class="text-3xl text-red-600 font-bold mb-8 flex items-center">
+      <svg class="w-6 h-6 mr-2 fill-current text-red-600" viewBox="0 0 24 24"></svg>
+      Rewards
+    </h2>
+  
+    <!-- Felles grid for alle reward-kort -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      
+      <!-- CS:GO Roll -->
+      <div class="border border-blue-500 p-6 bg-gray-800 flex flex-col h-full">
+        <div class="h-32 flex items-center justify-center mb-4">
+          <img src="img/csgoroll.png" alt="CS:GO Roll" class="max-h-full max-w-full"/>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-2xl font-bold text-white mb-4">5% Deposit Bonus</h3>
+          <ul class="space-y-2 mb-6">
+            <li>Deposit with code <strong>TDWH</strong></li>
+            <li>3 Free Cases</li>
+            <li>Participate in leaderboard</li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex space-x-4 mb-4">
+            <a href="https://www.csgoroll.com/r/TDWH"
+               class="flex-1 text-center py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded font-bold">
+              Claim Bonus 👍
+            </a>
+            <!-- <a href="leaderboards.html#csgo"
+               class="flex-1 text-center py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded font-bold">
+              Leaderboard 🎖️
+            </a> -->
+          </div>
+          <p class="text-xs text-gray-400 text-center">18+ only. Terms apply.</p>
+        </div>
+      </div>
+  
+      <!-- Rain.gg -->
+      <div class="border border-blue-500 p-6 bg-gray-800 flex flex-col h-full">
+        <div class="h-20 flex items-center justify-center mb-[64px]">
+          <img src="img/rain.gglogo.png" alt="Rain.gg" class="max-h-full max-w-full"/>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-2xl font-bold text-white mb-4">5% Deposit Bonus</h3>
+          <ul class="space-y-2 mb-6">
+            <li>Deposit with code <strong>TDWH</strong></li>
+            <li>Participate in leaderboard</li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex space-x-4 mb-4">
+            <a href="https://rain.gg/r/KObAwTqpjS"
+               class="flex-1 text-center py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded font-bold">
+              Claim Bonus 👍
+            </a>
+            <!-- <a href="leaderboards.html#rain"
+               class="flex-1 text-center py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded font-bold">
+              Leaderboard 👑
+            </a> -->
+          </div>
+          <p class="text-xs text-gray-400 text-center">18+ only. Terms apply.</p>
+        </div>
+      </div>
+  
+      <!-- CSGOGem -->
+      <div class="border border-blue-500 p-6 bg-gray-800 flex flex-col h-full">
+        <div class="h-20 flex items-center justify-center mb-[62px]">
+          <img src="img/csgogem.png" alt="CSGOGem" class="max-h-full max-w-full"/>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-2xl font-bold text-white mb-4">5% Deposit Bonus</h3>
+          <ul class="space-y-2 mb-6">
+            <li>Deposit with code <strong>TDWH</strong></li>
+            <li>Participate in leaderboard</li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex space-x-4 mb-4">
+            <a href="https://csgogem.com/r/tdwh"
+               class="flex-1 text-center py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded font-bold">
+              Claim Bonus 👍
+            </a>
+            <!-- <a href="leaderboards.html#csgogem"
+               class="flex-1 text-center py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded font-bold">
+              Leaderboard 💎
+            </a> -->
+          </div>
+          <p class="text-xs text-gray-400 text-center">18+ only. Terms apply.</p>
+        </div>
+      </div>
+  
+      <!-- Roobet -->
+      <div class="border border-blue-500 p-6 bg-gray-800 flex flex-col h-full">
+        <div class="h-32 flex items-center justify-center mb-[10px]">
+          <img src="img/roobet2.png" alt="Roobet" class="max-h-full max-w-full"/>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-2xl font-bold text-white mb-4">5% Deposit Bonus</h3>
+          <ul class="space-y-2 mb-6">
+            <li>Deposit with code <strong>TDWH</strong></li>
+            <li>Participate in leaderboard</li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex space-x-4 mb-4">
+            <a href="https://roobet.com/?ref=tdwh"
+               class="flex-1 text-center py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded font-bold">
+              Claim Bonus 👍
+            </a>
+            <!-- <a href="leaderboards.html#roobet"
+               class="flex-1 text-center py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded font-bold">
+              Leaderboard 🎲
+            </a> -->
+          </div>
+          <p class="text-xs text-gray-400 text-center">18+ only. Terms apply.</p>
+        </div>
+      </div>
+  
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center text-gray-400 py-4 relative z-10">
+    <p>We do not take responsibility for any losses…</p>
+    <p><a href="https://www.begambleaware.org" class="hover:text-red-400">BeGambleAware.org</a></p>
+    <p>© 2024 | Powered by r00t</p>
+  </footer>
+
+  <!-- Partikler-konfig -->
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: '#ef4444' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 2 },
+        move: { enable: true, direction: 'top', speed: 1, out_mode: 'out' }
+      },
+      interactivity: { detect_on: 'canvas', events: { onhover: { enable: false } } },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
